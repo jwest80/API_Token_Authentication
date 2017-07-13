@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="alert alert-danger" role="alert" *ngIf="!authenticated && submitted">
+    <strong>Login Failed!</strong>
+  </div>
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div class="form-group row">
+      <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+      <div class="col-sm-9">
+        <input type="email" class="form-control" id="inputEmail" placeholder="Email" requird [(ngModel)]="model.username" name="username">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+      <div class="col-sm-9">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" requird [(ngModel)]="model.password" name="password">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-3 col-sm-9">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </div>
+  </form>
+</div>

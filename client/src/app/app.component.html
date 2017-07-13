@@ -1,0 +1,50 @@
+<div class="bd-pageheader">
+  <div class="container">
+    <h1>{{title}}</h1>
+    <p class="lead">
+      An Example - Provides Authentication with WebAPI and Angular 2. This includes TypeScript, CORS, and Bootstrap 4 as well.
+    </p>
+  </div>
+</div>
+
+  <router-outlet></router-outlet>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8 bd-content">
+      <router-outlet></router-outlet>
+      <!--<fieldset>
+        <legend>Login</legend>
+        <app-login></app-login>
+      </fieldset>
+      <fieldset>
+        <legend>Register</legend>
+        <app-register></app-register>
+      </fieldset>-->
+    </div>
+    <div class="col-12 col-md-4 bd-sidebar">
+      <nav class="bd-links" id="docsNavbarContent">
+        <div class="bd-toc-item active">
+          <nav>
+            <ul>
+              <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+              <li><a routerLink="/register" routerLinkActive="active">Register</a></li>
+              <li><a routerLink="/values" routerLinkActive="active">Values</a></li>
+            </ul>
+          </nav>
+          <!--<app-values></app-values>-->
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<footer class="bd-footer text-muted">
+  <div class="container">
+    <ul class="bd-footer-links">
+      <li><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></li>
+      <li><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></li>
+      <li><a target="_blank" href="http://angularjs.blogspot.ca/">Angular blog</a></li>
+    </ul>
+    <p> An Example - Provides Authentication with WebAPI and Angular 2. This includes TypeScript, CORS, and Bootstrap 4 as well..</p>
+  </div>
+</footer>

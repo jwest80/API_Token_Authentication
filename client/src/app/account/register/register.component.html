@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="alert alert-success" role="alert" *ngIf="registered && submitted">
+    <strong>Well done!</strong> You successfully registered.
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="!registered && submitted">
+    <strong>Oh snap!</strong> Change a few things up and try submitting again.
+    <ul>
+      <li *ngFor="let err of errorMessages">{{err}}</li>
+    </ul>
+  </div>
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
+      <div class="col-sm-9">
+        <input type="email" class="form-control" id="inputEmail3" placeholder="Email" requird [(ngModel)]="model.email" name="email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-3 col-form-label">Password</label>
+      <div class="col-sm-9">
+        <input type="password" class="form-control" id="inputPassword3" placeholder="Password" requird [(ngModel)]="model.password"
+          name="password">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-3 col-form-label">Confirm Password</label>
+      <div class="col-sm-9">
+        <input type="password" class="form-control" id="inputPassword3" placeholder="Confirm Password" requird [(ngModel)]="model.confirmPassword"
+          name="confirmPassword">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-3 col-sm-9">
+        <button type="submit" class="btn btn-primary">Register</button>
+      </div>
+    </div>
+  </form>
+</div>
