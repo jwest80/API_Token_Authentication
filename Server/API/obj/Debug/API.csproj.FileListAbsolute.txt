@@ -82,3 +82,4 @@ E:\jwest\API_Token_Authentication\Server\API\obj\Debug\API.dll
 E:\jwest\API_Token_Authentication\Server\API\obj\Debug\API.pdb
 E:\jwest\API_Token_Authentication\Server\API\obj\Debug\API.Migrations.Init.resources
 E:\jwest\API_Token_Authentication\Server\API\obj\Debug\API.csproj.GenerateResource.Cache
+E:\jwest\API_Token_Authentication\Server\API\bin\Elmah.dll
