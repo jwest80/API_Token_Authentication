@@ -2,7 +2,7 @@
 
 Angular 2/4 thin client which communicates with WEBAPI 2.0.  Features Entity Framework, OWIN Authentication, and ELMAH
 
-## CLIENT (Angular 2 App)
+## CLIENT (Angular 4 App)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
