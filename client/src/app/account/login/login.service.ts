@@ -5,9 +5,12 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
+// Enviornment Variables
+import {environment} from '@environments/environment';
+
 @Injectable()
 export class LoginService {
-  private url = 'http://cli-example.lo/token'
+  private url = environment.BASE_API_URL + '/token';
   constructor(private http: Http) { }
 
   login(credentials) {

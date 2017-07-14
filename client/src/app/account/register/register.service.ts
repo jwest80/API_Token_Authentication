@@ -7,12 +7,13 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+// Enviornment Variables
+import {environment} from '@environments/environment';
+
 @Injectable()
 export class RegisterService {
-  // Resolve HTTP using the constructor
+  private url = environment.BASE_API_URL + '/account/register';
   constructor(private http: Http) { }
-  // private instance variable to hold base url
-  private url = 'http://cli-example.lo/api/account/register'
 
   register(reg): Observable<{}> {
     let payload = JSON.stringify(reg);

@@ -18,7 +18,8 @@
     ],
     "paths": {
       "@app/*": ["app/*"],
-      "@app-shared/*": ["app/shared/*"]
+      "@app-shared/*": ["app/shared/*"],
+      "@environments/*": ["environments/*"]
     }
   }
 }

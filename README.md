@@ -2,7 +2,7 @@
 
 Angular 2/4 thin client which communicates with WEBAPI 2.0.  Features Entity Framework, OWIN Authentication, and ELMAH
 
-## CLIENT (Angular 2 App)
+## CLIENT (Angular 4 App)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
@@ -17,7 +17,7 @@ Using Visual Studio WEBAPI Template with Individual Account Authentication
 
 ### Run Development API server
 
-The Client currently expects the API to be hosted at `http://cliexample.lo/`. You must host the endpoints at this URL or change the Client Angular 2 Services.
+The Client currently expects the API to be hosted at `http://cliexample.lo/`. You must host the endpoints at this URL or change the Client Angular `client/src/environments` configuration.
 
 ### ELMAH
 

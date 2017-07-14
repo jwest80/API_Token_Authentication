@@ -7,30 +7,30 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import { AuthenticationService } from '@app-shared/services'
+
+// Enviornment Variables
+import {environment} from '@environments/environment';
+
 @Injectable()
 export class ValuesService {
-    // Resolve HTTP using the constructor
-    constructor(private http: Http) { }
-    // private instance variable to hold base url
-    private valuesUrl = 'http://cli-example.lo/api/values'
+    private url = environment.BASE_API_URL + '/api/values';
+    constructor(private http: Http,
+                private authenticationService: AuthenticationService) { }
 
     // Fetch all existing comments
     getValues(): Observable<string[]> {
 
-        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        if (currentUser) {
-            var token = 'Bearer ' + currentUser.access_token || '';
+        let auth = this.authenticationService.read();
+        if (auth) {
+            var token = 'Bearer ' + auth.access_token || '';
         }
         let headers = new Headers({ 'Authorization': token });
         let options = new RequestOptions({ headers: headers });
 
-        // ...using get request
-        return this.http.get(this.valuesUrl, options)
-            // ...and calling .json() on the response to return data
+        return this.http.get(this.url, options)
             .map((res: Response) => res.json())
-            //...errors if any
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-
     }
 }
 
