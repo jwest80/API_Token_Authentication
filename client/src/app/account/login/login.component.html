@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="alert alert-danger" role="alert" *ngIf="!authenticated && submitted">
-    <strong>Login Failed!</strong>
+<div class="container" *ngIf="!isAuthenticated()">
+  <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+    <strong>{{errorMessage}}</strong>
   </div>
   <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
     <div class="form-group row">
@@ -21,4 +21,9 @@
       </div>
     </div>
   </form>
+</div>
+
+<div class="container" *ngIf="isAuthenticated()">
+  {{welcome()}} <br />
+  <a href="javascript:void(0)" (click)="logout()">Logout</a>
 </div>

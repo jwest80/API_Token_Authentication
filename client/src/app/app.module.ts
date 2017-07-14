@@ -6,11 +6,11 @@ import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule }     from './routing/routing.module';
 
-import { ValuesService } from './values/values.service';
 import { ValuesComponent } from './values/values.component';
 import { RegisterComponent } from './account/register/register.component';
 import { LoginComponent } from './account/login/login.component';
-import { ErrorParserService } from './errors/error-parser.service';
+
+import * as services from './shared/services';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { ErrorParserService } from './errors/error-parser.service';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ValuesService, ErrorParserService],
+  providers: [services.ErrorParserService, services.AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

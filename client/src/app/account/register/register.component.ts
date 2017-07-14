@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from './register.service';
-import { ErrorParserService } from '../../errors/error-parser.service'
+//import { ErrorParserService } from '../../shared/services';  //  <---\
+//import { ErrorParserService } from '@app/shared/services';   //  <---|--- These all work because of path in /tsconfig.json
+import { ErrorParserService } from '@app-shared/services';     //  <---/
 
 @Component({
   selector: 'app-register',

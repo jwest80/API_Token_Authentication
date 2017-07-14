@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 import { LoginService } from './login.service';
-import { ErrorParserService } from '../../errors/error-parser.service'
+import { AuthenticationService } from '@app-shared/services'
 
 @Component({
   selector: 'app-login',
@@ -11,26 +12,43 @@ import { ErrorParserService } from '../../errors/error-parser.service'
 export class LoginComponent implements OnInit {
 
   model = {grant_type: 'password'};
-  errorMessages = [];
+  submitted = false;
+  errorMessage: String;
 
   constructor(private loginService: LoginService,
-              private errorParserService: ErrorParserService) { }
+              private authenticationService: AuthenticationService,
+              private router: Router) { }
 
   ngOnInit() {
   }
 
+  isAuthenticated() {
+    return this.authenticationService.exists();
+  }
+
+  welcome() {
+    return "Welcome " + this.authenticationService.read().userName + "!";
+  }
+
+  logout() {
+    this.authenticationService.delete();
+  }
+
   onSubmit() { 
+    this.errorMessage = null;
     this.loginService.login(this.model)
       .subscribe(
         resp => { 
-          console.log(resp.json());
-          localStorage.setItem('currentUser', JSON.stringify(resp.json())); 
+          this.authenticationService.create(resp);
+          this.router.navigate(['values']);
         },
         err => {
-          this.errorMessages = this.errorParserService.parseErrors(err.json());
+          this.errorMessage=err.json().error_description;
+          console.log(this.errorMessage);
         },
         () => {
           // Finally
+          console.log('Login is complete');
         }
       );
   }
